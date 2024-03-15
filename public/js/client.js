@@ -47,15 +47,27 @@ socket.on("new user", function (data) {
     });
 });
 
-//when a user leaves
-socket.on("user disconnected", function (userName) {
-    document.querySelector(`.${userName}-userlist`).remove();
-});
-
 const inputField = document.querySelector(".message_form__input");
 const messageForm = document.querySelector(".message_form");
 const messageBox = document.querySelector(".messages__history");
 
+//when a user leaves
+socket.on("user disconnected", function (userName) {
+    document.querySelector(`.${userName}-userlist`).remove();
+
+    const time = new Date();
+    const formattedTime = time.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+    });
+    //add a message to the chatbox
+    const message = `<div class="outgoing__message">
+    <div class="sent__message">
+      <p class="user_left">${userName} has left - <span class="time_date">${formattedTime}</span></p>
+    </div>
+  </div>`;
+    messageBox.innerHTML += message;
+});
 const addNewMessage = ({ user, message }) => {
     const time = new Date();
     const formattedTime = time.toLocaleString("en-US", {
