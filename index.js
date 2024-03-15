@@ -36,4 +36,9 @@ io.on("connection", function (socket) {
     socket.on("chat message", function (data) {
         io.emit("chat message", data);
     });
+
+    socket.on("typing", (data) => {
+        if (data.typing == true) io.emit("typingStatus", data);
+        else io.emit("typingStatus", data);
+    });
 });

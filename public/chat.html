@@ -14,19 +14,17 @@
 </head>
 
 <body>
-  <main>
-
-    <div class="banner">
-      <h1>Arman's chat</h1>
-    </div>
-    <div class="sidenav">
-      <div class="inbox__people">
-        <h4>Active users</h4>
+  <!--Navbar-->
+  <header>
+    <nav class="navbar">
+      <div>
+        <a href="index.html" class="nav-link" style="float: left;">HOME</a>
+        <a href="about.html" class="nav-link" style="text-align: right;">About Us</a>
       </div>
-
-    </div>
-    <hr>
-    <div class="content">
+    </nav>
+  </header>
+  <main>
+    <div class="content container">
       <div class="messages__history"></div>
       <div class="fallback"></div>
       <div class="inbox__messages">
@@ -43,8 +41,18 @@
     </div>
 
   </main>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/js/client.js"></script>
+  <footer>
+    <div class="container">
+
+      <div class="sidebar inbox__people">
+        <h4>Active users</h4>
+      </div>
+
+      <div class="container">
+        <p>&copy; 2024 Arman's chat app</p>
+      </div>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/js/client.js"></script>
 </body>
 
 </html>

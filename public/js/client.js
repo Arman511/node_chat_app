@@ -6,6 +6,9 @@ const inboxPeople = document.querySelector(".inbox__people");
 
 let userName = "";
 let id;
+var typing = false;
+
+var firstTime = true;
 
 const newUserConnected = function (data) {
     //give the user a random unique id
@@ -60,15 +63,20 @@ const messageForm = document.querySelector(".message_form");
 const messageBox = document.querySelector(".messages__history");
 
 socket.on("user joined", function (data) {
+    if (firstTime) {
+        firstTime = false;
+        return;
+    }
+
     const time = new Date();
     const formattedTime = time.toLocaleString("en-US", {
         hour: "numeric",
         minute: "numeric",
     });
     //add a message to the chatbox
-    const message = `<div class="outgoing__message message">
+    const message = `<div class="outgoing__message message user_joined">
         <div class="sent__message">
-          <p class="user_joined">${data} has joined - <span class="time_date">${formattedTime}</span></p>
+          <p>${data} has joined - <span class="time_date">${formattedTime}</span></p>
         </div>
       </div>`;
     messageBox.innerHTML += message;
@@ -90,9 +98,9 @@ socket.on("user disconnected", function (userName) {
         minute: "numeric",
     });
     //add a message to the chatbox
-    const message = `<div class="outgoing__message message">
+    const message = `<div class="incoming__message message user_left">
     <div class="sent__message">
-      <p class="user_left">${userName} has left - <span class="time_date">${formattedTime}</span></p>
+      <p>${userName} has left - <span class="time_date">${formattedTime}</span></p>
     </div>
   </div>`;
     messageBox.innerHTML += message;
