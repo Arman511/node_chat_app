@@ -6,6 +6,7 @@ const inboxPeople = document.querySelector(".inbox__people");
 
 let userName = "";
 let id;
+
 const newUserConnected = function (data) {
     //give the user a random unique id
     id = Math.floor(Math.random() * 1000000);
@@ -59,7 +60,6 @@ const messageForm = document.querySelector(".message_form");
 const messageBox = document.querySelector(".messages__history");
 
 socket.on("user joined", function (data) {
-    console.log(data);
     const time = new Date();
     const formattedTime = time.toLocaleString("en-US", {
         hour: "numeric",
