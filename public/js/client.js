@@ -9,7 +9,7 @@ let id;
 const newUserConnected = function (data) {
     //give the user a random unique id
     id = Math.floor(Math.random() * 1000000);
-    userName = "user-" + id;
+    userName = prompt("Enter your username: ");
     //console.log(typeof(userName));
 
     //emit an event with the user id
