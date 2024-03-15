@@ -66,7 +66,7 @@ socket.on("user joined", function (data) {
         minute: "numeric",
     });
     //add a message to the chatbox
-    const message = `<div class="outgoing__message">
+    const message = `<div class="outgoing__message message">
         <div class="sent__message">
           <p class="user_joined">${data} has joined - <span class="time_date">${formattedTime}</span></p>
         </div>
@@ -90,7 +90,7 @@ socket.on("user disconnected", function (userName) {
         minute: "numeric",
     });
     //add a message to the chatbox
-    const message = `<div class="outgoing__message">
+    const message = `<div class="outgoing__message message">
     <div class="sent__message">
       <p class="user_left">${userName} has left - <span class="time_date">${formattedTime}</span></p>
     </div>
@@ -105,7 +105,7 @@ const addNewMessage = ({ user, message }) => {
     });
 
     const receivedMsg = `
-  <div class="incoming__message">
+  <div class="incoming__message message">
     <div class="received__message">
       <p>${message}</p>
       <div class="message__info">
@@ -116,7 +116,7 @@ const addNewMessage = ({ user, message }) => {
   </div>`;
 
     const myMsg = `
-  <div class="outgoing__message">
+  <div class="outgoing__message message">
     <div class="sent__message">
       <p>${message}</p>
       <div class="message__info">
