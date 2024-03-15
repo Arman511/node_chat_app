@@ -9,11 +9,26 @@ let id;
 const newUserConnected = function (data) {
     //give the user a random unique id
     id = Math.floor(Math.random() * 1000000);
+    //prompt the user for their username
     userName = prompt("Enter your username: ");
+    while (true) {
+        if (
+            userName === null ||
+            userName === "" ||
+            /^-?\d+$/.test(userName[0])
+        ) {
+            userName = prompt(
+                "Enter your username, make sure the first letter is not a number): "
+            );
+        } else {
+            break;
+        }
+    }
     //console.log(typeof(userName));
 
     //emit an event with the user id
     socket.emit("new user", userName);
+    socket.emit("user joined", userName);
     //call
     addToUsersBox(userName);
 };
@@ -40,17 +55,32 @@ const addToUsersBox = function (userName) {
 //call
 newUserConnected();
 
+const inputField = document.querySelector(".message_form__input");
+const messageForm = document.querySelector(".message_form");
+const messageBox = document.querySelector(".messages__history");
+
+socket.on("user joined", function (data) {
+    console.log(data);
+    const time = new Date();
+    const formattedTime = time.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+    });
+    //add a message to the chatbox
+    const message = `<div class="outgoing__message">
+        <div class="sent__message">
+          <p class="user_joined">${data} has joined - <span class="time_date">${formattedTime}</span></p>
+        </div>
+      </div>`;
+    messageBox.innerHTML += message;
+});
+
 //when a new user event is detected
 socket.on("new user", function (data) {
     data.map(function (user) {
         return addToUsersBox(user);
     });
 });
-
-const inputField = document.querySelector(".message_form__input");
-const messageForm = document.querySelector(".message_form");
-const messageBox = document.querySelector(".messages__history");
-
 //when a user leaves
 socket.on("user disconnected", function (userName) {
     document.querySelector(`.${userName}-userlist`).remove();
