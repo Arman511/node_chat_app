@@ -28,7 +28,6 @@ const newUserConnected = function (data) {
 
     //emit an event with the user id
     socket.emit("new user", userName);
-    socket.emit("user joined", userName);
     //call
     addToUsersBox(userName);
 };
