@@ -117,3 +117,10 @@ nav.navbar {
     background-color: #5f5af8;
     margin-right: 50%;
 }
+
+.message_form__input {
+    width: 89%;
+}
+.message_form__button {
+    width: 10%;
+}
