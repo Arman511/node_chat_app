@@ -4,17 +4,13 @@ const socket = io();
 
 const inboxPeople = document.querySelector(".inbox__people");
 
-
 let userName = "";
 let id;
 const newUserConnected = function (data) {
-    
-
     //give the user a random unique id
     id = Math.floor(Math.random() * 1000000);
-    userName = 'user-' +id;
-    //console.log(typeof(userName));   
-    
+    userName = "user-" + id;
+    //console.log(typeof(userName));
 
     //emit an event with the user id
     socket.emit("new user", userName);
@@ -28,9 +24,8 @@ const addToUsersBox = function (userName) {
     //to true, while also casting from an object to boolean
     if (!!document.querySelector(`.${userName}-userlist`)) {
         return;
-    
     }
-    
+
     //setup the divs for displaying the connected users
     //id is set to a string including the username
     const userBox = `
@@ -42,31 +37,33 @@ const addToUsersBox = function (userName) {
     inboxPeople.innerHTML += userBox;
 };
 
-//call 
+//call
 newUserConnected();
 
 //when a new user event is detected
 socket.on("new user", function (data) {
-  data.map(function (user) {
-          return addToUsersBox(user);
-      });
+    data.map(function (user) {
+        return addToUsersBox(user);
+    });
 });
 
 //when a user leaves
 socket.on("user disconnected", function (userName) {
-  document.querySelector(`.${userName}-userlist`).remove();
+    document.querySelector(`.${userName}-userlist`).remove();
 });
-
 
 const inputField = document.querySelector(".message_form__input");
 const messageForm = document.querySelector(".message_form");
 const messageBox = document.querySelector(".messages__history");
 
 const addNewMessage = ({ user, message }) => {
-  const time = new Date();
-  const formattedTime = time.toLocaleString("en-US", { hour: "numeric", minute: "numeric" });
+    const time = new Date();
+    const formattedTime = time.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+    });
 
-  const receivedMsg = `
+    const receivedMsg = `
   <div class="incoming__message">
     <div class="received__message">
       <p>${message}</p>
@@ -77,7 +74,7 @@ const addNewMessage = ({ user, message }) => {
     </div>
   </div>`;
 
-  const myMsg = `
+    const myMsg = `
   <div class="outgoing__message">
     <div class="sent__message">
       <p>${message}</p>
@@ -87,24 +84,24 @@ const addNewMessage = ({ user, message }) => {
     </div>
   </div>`;
 
-  //is the message sent or received
-  messageBox.innerHTML += user === userName ? myMsg : receivedMsg;
+    //is the message sent or received
+    messageBox.innerHTML += user === userName ? myMsg : receivedMsg;
 };
 
 messageForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  if (!inputField.value) {
-    return;
-  }
+    e.preventDefault();
+    if (!inputField.value) {
+        return;
+    }
 
-  socket.emit("chat message", {
-    message: inputField.value,
-    nick: userName,
-  });
+    socket.emit("chat message", {
+        message: inputField.value,
+        nick: userName,
+    });
 
-  inputField.value = "";
+    inputField.value = "";
 });
 
 socket.on("chat message", function (data) {
-  addNewMessage({ user: data.nick, message: data.message });
+    addNewMessage({ user: data.nick, message: data.message });
 });

@@ -1,17 +1,17 @@
 {
-  "name": "ca4",
-  "version": "1.0.0",
-  "description": "The repository contains some example code to get you started.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.3",
-    "install": "^0.13.0",
-    "socket.io": "^4.7.5"
-  }
+    "name": "ca4",
+    "version": "1.0.0",
+    "description": "The repository contains some example code to get you started.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.3",
+        "install": "^0.13.0",
+        "socket.io": "^4.7.5"
+    }
 }
