@@ -74,7 +74,7 @@ socket.on("user joined", function (data) {
         minute: "numeric",
     });
     //add a message to the chatbox
-    const message = `<div class="outgoing__message message user_joined">
+    const message = `<div class="incoming__message message user_joined">
         <div class="sent__message">
           <p>${data} has joined - <span class="time_date">${formattedTime}</span></p>
         </div>
