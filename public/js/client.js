@@ -155,6 +155,10 @@ messageForm.addEventListener("submit", (e) => {
     if (!inputField.value) {
         return;
     }
+    if (inputField.value.length > 300) {
+        alert("Message too long");
+        return;
+    }
 
     socket.emit("chat message", {
         message: inputField.value,
