@@ -32,18 +32,6 @@ header {
     color: #fd7013;
 }
 
-/* Style the side navigation */
-.sidenav {
-    height: 100%;
-    width: 200px;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-}
-
 /*make the active user text inherit style from container*/
 
 .inbox__people {
@@ -52,10 +40,6 @@ header {
 }
 
 /* Style the content */
-.content {
-    margin-left: 200px;
-    padding-left: 20px;
-}
 
 .user_left {
     background-color: red !important;
@@ -79,12 +63,12 @@ nav.navbar {
     display: block;
     text-align: right;
     justify-content: right;
-    font-size: 25px;
+    font-size: 25px !important;
     background-color: #f2f2f2;
 }
 
 .nav-link {
-    text-decoration: none;
+    text-decoration: none !important;
     color: #fd7013;
 }
 
