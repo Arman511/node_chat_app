@@ -31,6 +31,8 @@ const newUserConnected = function (data) {
     //console.log(typeof(userName));
 
     //emit an event with the user id
+    var nametag = document.getElementById("nametag");
+    nametag.innerHTML = `You are ${userName}`;
     socket.emit("new user", userName);
     //call
     addToUsersBox(userName);
