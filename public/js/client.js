@@ -160,6 +160,11 @@ messageForm.addEventListener("submit", (e) => {
         return;
     }
 
+    if (/<\/?[a-z][\s\S]*>/i.test(inputField.value)) {
+        alert("Invalid input. HTML code is not allowed.");
+        return;
+    }
+
     socket.emit("chat message", {
         message: inputField.value,
         nick: userName,
