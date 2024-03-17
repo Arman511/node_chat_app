@@ -65,23 +65,33 @@ const messageForm = document.querySelector(".message_form");
 const messageBox = document.querySelector(".messages__history");
 
 socket.on("user joined", function (data) {
-    if (firstTime) {
-        firstTime = false;
-        return;
-    }
-
     const time = new Date();
     const formattedTime = time.toLocaleString("en-US", {
         hour: "numeric",
         minute: "numeric",
     });
+    if (firstTime) {
+        firstTime = false;
+        data.chat_history.map(function (message) {
+            addNewMessage({ user: message.nick, message: message.message });
+            console.log(message);
+        });
+        const message = `<div class="outgoing__message message you_have_joined">
+        <div class="sent__message">
+          <p>You ${data.user} have joined - <span class="time_date">${formattedTime}</span></p>
+        </div>
+      </div>`;
+        messageBox.innerHTML = message + messageBox.innerHTML;
+        return;
+    }
+
     //add a message to the chatbox
     const message = `<div class="incoming__message message user_joined">
         <div class="sent__message">
-          <p>${data} has joined - <span class="time_date">${formattedTime}</span></p>
+          <p>${data.user} has joined - <span class="time_date">${formattedTime}</span></p>
         </div>
       </div>`;
-    messageBox.innerHTML += message;
+    messageBox.innerHTML = message + messageBox.innerHTML;
 });
 
 //when a new user event is detected
@@ -105,7 +115,7 @@ socket.on("user disconnected", function (leftUserName) {
       <p>${leftUserName} has left - <span class="time_date">${formattedTime}</span></p>
     </div>
   </div>`;
-    messageBox.innerHTML += message;
+    messageBox.innerHTML = message + messageBox.innerHTML;
 });
 const addNewMessage = ({ user, message }) => {
     const time = new Date();
@@ -136,7 +146,8 @@ const addNewMessage = ({ user, message }) => {
   </div>`;
 
     //is the message sent or received
-    messageBox.innerHTML += user === userName ? myMsg : receivedMsg;
+    messageBox.innerHTML =
+        (user === userName ? myMsg : receivedMsg) + messageBox.innerHTML;
 };
 
 messageForm.addEventListener("submit", (e) => {

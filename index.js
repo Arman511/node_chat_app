@@ -13,7 +13,7 @@ app.use(express.static("public"));
 
 // Socket setup
 const io = socket(server);
-
+const chat_history = [];
 //we use a set to store users, sets objects are for unique values of any type
 const activeUsers = new Set();
 
@@ -25,6 +25,10 @@ io.on("connection", function (socket) {
         activeUsers.add(data);
         //... is the the spread operator, adds to the set while retaining what was in there already
         io.emit("new user", [...activeUsers]);
+        data = {
+            user: data,
+            chat_history: chat_history,
+        };
         io.emit("user joined", data);
     });
 
@@ -35,6 +39,10 @@ io.on("connection", function (socket) {
 
     socket.on("chat message", function (data) {
         io.emit("chat message", data);
+        chat_history.push(data);
+        if (chat_history.length > 100) {
+            chat_history.shift();
+        }
     });
 
     socket.on("typing", (data) => {

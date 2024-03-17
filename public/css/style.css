@@ -108,3 +108,15 @@ nav.navbar {
 .message_form__button {
     width: 15%;
 }
+
+.messages__history {
+    max-height: 500px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.you_have_joined {
+    background-color: gold !important;
+}
+#clear_chat {
+    width: 100%;
+}
