@@ -48,7 +48,7 @@ const addToUsersBox = function (userName) {
     //id is set to a string including the username
     const userBox = `
     <div class="chat_id ${userName}-userlist">
-      <h5>${userName}</h5>
+      <h5 id="${userName}">${userName}</h5>
     </div>
   `;
     //set the inboxPeople div with the value of userbox
@@ -89,8 +89,8 @@ socket.on("new user", function (data) {
     });
 });
 //when a user leaves
-socket.on("user disconnected", function (userName) {
-    document.querySelector(`.${userName}-userlist`).remove();
+socket.on("user disconnected", function (leftUserName) {
+    document.querySelector(`.${leftUserName}-userlist`).remove();
 
     const time = new Date();
     const formattedTime = time.toLocaleString("en-US", {
@@ -100,7 +100,7 @@ socket.on("user disconnected", function (userName) {
     //add a message to the chatbox
     const message = `<div class="incoming__message message user_left">
     <div class="sent__message">
-      <p>${userName} has left - <span class="time_date">${formattedTime}</span></p>
+      <p>${leftUserName} has left - <span class="time_date">${formattedTime}</span></p>
     </div>
   </div>`;
     messageBox.innerHTML += message;
@@ -153,4 +153,20 @@ messageForm.addEventListener("submit", (e) => {
 
 socket.on("chat message", function (data) {
     addNewMessage({ user: data.nick, message: data.message });
+});
+
+inputField.addEventListener("keypress", () => {
+    socket.emit("typing", { typing: true, nick: userName });
+});
+inputField.addEventListener("blur", () => {
+    socket.emit("typing", { typing: false, nick: userName });
+});
+
+socket.on("typingStatus", function (data) {
+    var user = document.getElementById(data.nick);
+    if (data.typing == true) {
+        user.innerHTML = `<h5 id="${data.nick}">${data.nick} is typing...</h5>`;
+    } else {
+        user.outerHTML = `<h5 id="${data.nick}">${data.nick}</h5>`;
+    }
 });

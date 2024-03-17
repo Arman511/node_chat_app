@@ -38,7 +38,10 @@ io.on("connection", function (socket) {
     });
 
     socket.on("typing", (data) => {
-        if (data.typing == true) io.emit("typingStatus", data);
-        else io.emit("typingStatus", data);
+        if (data.typing == true) {
+            io.emit("typingStatus", data);
+        } else {
+            io.emit("typingStatus", data);
+        }
     });
 });
