@@ -230,7 +230,14 @@ send_img.addEventListener("click", function () {
         alert("Invalid input. HTML code is not allowed.");
         return;
     }
-    const message = `<img src="${link}" alt="Image" width="300" height="300">`;
+    if (!/\.(jpg|png|webp|gif)$/.test(link)) {
+        alert(
+            "Invalid image format. Only JPG, PNG, WEBP, and GIF are allowed."
+        );
+        return;
+    }
+    const message = `<img src="${link}" alt="Image"  style="width: 60%">
+    <a href="${link}" target="_blank">Link to image</a>`;
     socket.emit("chat message", {
         message: message,
         nick: userName,
