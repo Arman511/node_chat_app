@@ -38,8 +38,18 @@ io.on("connection", function (socket) {
     });
 
     socket.on("chat message", function (data) {
-        io.emit("chat message", data);
-        chat_history.push(data);
+        const time = new Date();
+        const formattedTime = time.toLocaleString("en-US", {
+            hour: "numeric",
+            minute: "numeric",
+        });
+        data_with_time = {
+            time: formattedTime,
+            user: data.nick,
+            message: data.message,
+        };
+        io.emit("chat message", data_with_time);
+        chat_history.push(data_with_time);
         if (chat_history.length > 100) {
             chat_history.shift();
         }

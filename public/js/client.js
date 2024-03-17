@@ -73,7 +73,11 @@ socket.on("user joined", function (data) {
     if (firstTime) {
         firstTime = false;
         data.chat_history.map(function (message) {
-            addNewMessage({ user: message.nick, message: message.message });
+            addNewMessage({
+                time: message.time,
+                user: message.user,
+                message: message.message,
+            });
             console.log(message);
         });
         const message = `<div class="outgoing__message message you_have_joined">
@@ -117,20 +121,14 @@ socket.on("user disconnected", function (leftUserName) {
   </div>`;
     messageBox.innerHTML = message + messageBox.innerHTML;
 });
-const addNewMessage = ({ user, message }) => {
-    const time = new Date();
-    const formattedTime = time.toLocaleString("en-US", {
-        hour: "numeric",
-        minute: "numeric",
-    });
-
+const addNewMessage = ({ time, user, message }) => {
     const receivedMsg = `
   <div class="incoming__message message">
     <div class="received__message">
       <p>${message}</p>
       <div class="message__info">
         <span class="message__author">${user}</span>
-        <span class="time_date">${formattedTime}</span>
+        <span class="time_date">${time}</span>
       </div>
     </div>
   </div>`;
@@ -140,7 +138,7 @@ const addNewMessage = ({ user, message }) => {
     <div class="sent__message">
       <p>${message}</p>
       <div class="message__info">
-        <span class="time_date">${formattedTime}</span>
+        <span class="time_date">${time}</span>
       </div>
     </div>
   </div>`;
@@ -169,12 +167,12 @@ messageForm.addEventListener("submit", (e) => {
         message: inputField.value,
         nick: userName,
     });
-
+    console.log(userName);
     inputField.value = "";
 });
 
 socket.on("chat message", function (data) {
-    addNewMessage({ user: data.nick, message: data.message });
+    addNewMessage({ time: data.time, user: data.user, message: data.message });
 });
 
 inputField.addEventListener("keypress", () => {
@@ -191,4 +189,50 @@ socket.on("typingStatus", function (data) {
     } else {
         user.outerHTML = `<h5 id="${data.nick}">${data.nick}</h5>`;
     }
+});
+
+const send_link = document.getElementById("send_link");
+const send_img = document.getElementById("send_img");
+
+send_link.addEventListener("click", function () {
+    var link = prompt("Enter the link: ");
+    if (link === null || link === "") {
+        return;
+    }
+    if (link.length > 300) {
+        alert("Link too long");
+        return;
+    }
+    if (/<\/?[a-z][\s\S]*>/i.test(link)) {
+        alert("Invalid input. HTML code is not allowed.");
+        return;
+    }
+    if (!link.startsWith("http")) {
+        link = "https://" + link;
+    }
+    const message = `<a href="${link}" target="_blank">${link}</a>`;
+    socket.emit("chat message", {
+        message: message,
+        nick: userName,
+    });
+});
+
+send_img.addEventListener("click", function () {
+    var link = prompt("Enter the image link: ");
+    if (link === null || link === "") {
+        return;
+    }
+    if (link.length > 300) {
+        alert("Link too long");
+        return;
+    }
+    if (/<\/?[a-z][\s\S]*>/i.test(link)) {
+        alert("Invalid input. HTML code is not allowed.");
+        return;
+    }
+    const message = `<img src="${link}" alt="Image" width="300" height="300">`;
+    socket.emit("chat message", {
+        message: message,
+        nick: userName,
+    });
 });
