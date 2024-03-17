@@ -58,6 +58,12 @@
     </div>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/client.js"></script>
+    <script>
+      var button = document.getElementById('clear_chat');
+      button.addEventListener('click', function () {
+        document.querySelector('.messages__history').innerHTML = '';
+      });
+    </script>
 </body>
 
 </html>
