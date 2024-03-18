@@ -9,6 +9,7 @@ let id;
 var typing = false;
 
 var firstTime = true;
+var notifications = false;
 
 const newUserConnected = function (data) {
     //give the user a random unique id
@@ -171,6 +172,10 @@ messageForm.addEventListener("submit", (e) => {
 
 socket.on("chat message", function (data) {
     addNewMessage({ time: data.time, user: data.user, message: data.message });
+    if (notifications && data.user !== userName) {
+        const audio = new Audio("assets/ping.mp3");
+        audio.play();
+    }
 });
 
 inputField.addEventListener("keypress", () => {
@@ -197,6 +202,21 @@ socket.on("script manipulated", function (data) {
 
 const send_link = document.getElementById("send_link");
 const send_img = document.getElementById("send_img");
+const notification_button = document.getElementById("notification_button");
+
+notification_button.addEventListener("click", function () {
+    if (notifications) {
+        notifications = false;
+        notification_button.innerHTML = "Enable Notifications";
+        notification_button.classList.add("disabled");
+        notification_button.classList.remove("enabled");
+    } else {
+        notifications = true;
+        notification_button.innerHTML = "Disable Notifications";
+        notification_button.classList.add("enabled");
+        notification_button.classList.remove("disabled");
+    }
+});
 
 send_link.addEventListener("click", function () {
     var link = prompt("Enter the link: ");

@@ -125,3 +125,11 @@ nav.navbar {
     justify-content: space-between;
     margin-top: 20px;
 }
+
+button.disabled {
+    background-color: red;
+}
+
+button.enabled {
+    background-color: green;
+}
