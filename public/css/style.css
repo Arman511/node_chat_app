@@ -95,12 +95,12 @@ nav.navbar {
 
 .outgoing__message {
     background-color: #18d2b0;
-    margin-left: 50%;
+    margin-left: 30%;
 }
 
 .incoming__message {
     background-color: #5f5af8;
-    margin-right: 50%;
+    margin-right: 30%;
 }
 
 .messages__history {
