@@ -14,11 +14,14 @@ var notifications = false;
 
 const promptUserName = function () {
     id = Math.floor(Math.random() * 1000000);
-    userName = prompt("Enter your username: ");
+    userName = prompt("Enter your username, or enter nothing to be a guest: ");
+    if (userName === "" || userName === null) {
+        userName = "Guest_" + id;
+        socket.emit("validate user", { user: userName, id: id });
+        return;
+    }
     while (true) {
         if (
-            userName === null ||
-            userName === "" ||
             /^-?\d+$/.test(userName[0]) ||
             userName.includes(" ") ||
             /<\/?[a-z][\s\S]*>/i.test(userName) ||
@@ -60,6 +63,7 @@ const promptUserName = function () {
             break;
         }
     }
+
     socket.emit("validate user", { user: userName, id: id });
 };
 
