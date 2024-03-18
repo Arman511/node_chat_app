@@ -56,9 +56,7 @@ const newUserConnected = function (data) {
             userName.includes("+") ||
             userName.includes("-")
         ) {
-            userName = prompt(
-                "Enter your username, make sure the first letter is not a number): "
-            );
+            userName = prompt("Invalid username enter another username: ");
         } else {
             break;
         }
