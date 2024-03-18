@@ -187,7 +187,7 @@ socket.on("typingStatus", function (data) {
     if (data.typing == true) {
         user.innerHTML = `<h5 id="${data.nick}">${data.nick} is typing...</h5>`;
     } else {
-        user.outerHTML = `<h5 id="${data.nick}">${data.nick}</h5>`;
+        user.innerHTML = `<h5 id="${data.nick}">${data.nick}</h5>`;
     }
 });
 
