@@ -3,6 +3,7 @@
 const socket = io();
 
 const inboxPeople = document.querySelector(".inbox__people");
+const audio = new Audio("assets/ping.mp3");
 
 let userName = "";
 let id;
@@ -63,8 +64,6 @@ const promptUserName = function () {
 };
 
 socket.on("user validated", function (data) {
-    console.log(data);
-    console.log({ id, userName });
     if (data.id === id && data.validated === true && userName === data.user) {
         newUserConnected();
     } else if (
@@ -78,10 +77,8 @@ socket.on("user validated", function (data) {
 });
 
 const newUserConnected = function (data) {
-    //give the user a random unique id
+    //give the user a random unique ids
     //prompt the user for their username
-
-    //console.log(typeof(userName));
 
     //emit an event with the user id
     var nametag = document.getElementById("nametag");
@@ -225,7 +222,6 @@ messageForm.addEventListener("submit", (e) => {
 socket.on("chat message", function (data) {
     addNewMessage({ time: data.time, user: data.user, message: data.message });
     if (notifications && data.user !== userName) {
-        const audio = new Audio("assets/ping.mp3");
         audio.play();
     }
 });
