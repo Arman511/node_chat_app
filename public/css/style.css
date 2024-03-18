@@ -54,6 +54,7 @@ header {
     margin: 10px;
     border-radius: 10px;
     background-color: #f2f2f2;
+    overflow-wrap: break-word;
 }
 
 nav.navbar {
