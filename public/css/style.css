@@ -103,13 +103,6 @@ nav.navbar {
     margin-right: 50%;
 }
 
-.message_form__input {
-    width: 80%;
-}
-.message_form__button {
-    width: 15%;
-}
-
 .messages__history {
     max-height: 500px;
     display: flex;
@@ -133,4 +126,15 @@ button.disabled {
 
 button.enabled {
     background-color: green;
+}
+
+.message_form {
+    display: flex;
+}
+.message_form__input {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+.message_form__button {
+    width: min-content;
 }
