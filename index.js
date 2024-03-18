@@ -21,6 +21,48 @@ io.on("connection", function (socket) {
     console.log("Made socket connection");
 
     socket.on("new user", function (data) {
+        if (
+            data === null ||
+            data === "" ||
+            /^-?\d+$/.test(data[0]) ||
+            data.includes(" ") ||
+            /<\/?[a-z][\s\S]*>/i.test(data) ||
+            data.length > 20 ||
+            data.length < 3 ||
+            data.includes("<") ||
+            data.includes(">") ||
+            data.includes("&") ||
+            data.includes('"') ||
+            data.includes("'") ||
+            data.includes("/") ||
+            data.includes("\\") ||
+            data.includes("=") ||
+            data.includes("(") ||
+            data.includes(")") ||
+            data.includes(";") ||
+            data.includes(":") ||
+            data.includes(",") ||
+            data.includes("[") ||
+            data.includes("]") ||
+            data.includes("{") ||
+            data.includes("}") ||
+            data.includes("!") ||
+            data.includes("?") ||
+            data.includes("*") ||
+            data.includes("#") ||
+            data.includes("$") ||
+            data.includes("%") ||
+            data.includes("^") ||
+            data.includes("@") ||
+            data.includes("~") ||
+            data.includes("`") ||
+            data.includes("|") ||
+            data.includes("+") ||
+            data.includes("-")
+        ) {
+            io.emit("script manipulated", data.nick);
+            return;
+        }
         socket.userId = data;
         activeUsers.add(data);
         //... is the the spread operator, adds to the set while retaining what was in there already

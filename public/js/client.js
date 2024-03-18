@@ -20,7 +20,41 @@ const newUserConnected = function (data) {
         if (
             userName === null ||
             userName === "" ||
-            /^-?\d+$/.test(userName[0])
+            /^-?\d+$/.test(userName[0]) ||
+            userName.includes(" ") ||
+            /<\/?[a-z][\s\S]*>/i.test(userName) ||
+            userName.length > 20 ||
+            userName.length < 3 ||
+            userName.includes("<") ||
+            userName.includes(">") ||
+            userName.includes("&") ||
+            userName.includes('"') ||
+            userName.includes("'") ||
+            userName.includes("/") ||
+            userName.includes("\\") ||
+            userName.includes("=") ||
+            userName.includes("(") ||
+            userName.includes(")") ||
+            userName.includes(";") ||
+            userName.includes(":") ||
+            userName.includes(",") ||
+            userName.includes("[") ||
+            userName.includes("]") ||
+            userName.includes("{") ||
+            userName.includes("}") ||
+            userName.includes("!") ||
+            userName.includes("?") ||
+            userName.includes("*") ||
+            userName.includes("#") ||
+            userName.includes("$") ||
+            userName.includes("%") ||
+            userName.includes("^") ||
+            userName.includes("@") ||
+            userName.includes("~") ||
+            userName.includes("`") ||
+            userName.includes("|") ||
+            userName.includes("+") ||
+            userName.includes("-")
         ) {
             userName = prompt(
                 "Enter your username, make sure the first letter is not a number): "
