@@ -19,50 +19,67 @@ const activeUsers = new Set();
 
 io.on("connection", function (socket) {
     console.log("Made socket connection");
-
-    socket.on("new user", function (data) {
+    socket.on("validate user", function (data) {
         if (
-            data === null ||
-            data === "" ||
-            /^-?\d+$/.test(data[0]) ||
-            data.includes(" ") ||
-            /<\/?[a-z][\s\S]*>/i.test(data) ||
-            data.length > 20 ||
-            data.length < 3 ||
-            data.includes("<") ||
-            data.includes(">") ||
-            data.includes("&") ||
-            data.includes('"') ||
-            data.includes("'") ||
-            data.includes("/") ||
-            data.includes("\\") ||
-            data.includes("=") ||
-            data.includes("(") ||
-            data.includes(")") ||
-            data.includes(";") ||
-            data.includes(":") ||
-            data.includes(",") ||
-            data.includes("[") ||
-            data.includes("]") ||
-            data.includes("{") ||
-            data.includes("}") ||
-            data.includes("!") ||
-            data.includes("?") ||
-            data.includes("*") ||
-            data.includes("#") ||
-            data.includes("$") ||
-            data.includes("%") ||
-            data.includes("^") ||
-            data.includes("@") ||
-            data.includes("~") ||
-            data.includes("`") ||
-            data.includes("|") ||
-            data.includes("+") ||
-            data.includes("-")
+            data.user === null ||
+            data.user === "" ||
+            /^-?\d+$/.test(data.user[0]) ||
+            data.user.includes(" ") ||
+            /<\/?[a-z][\s\S]*>/i.test(data.user) ||
+            data.user.length > 20 ||
+            data.user.length < 3 ||
+            data.user.includes("<") ||
+            data.user.includes(">") ||
+            data.user.includes("&") ||
+            data.user.includes('"') ||
+            data.user.includes("'") ||
+            data.user.includes("/") ||
+            data.user.includes("\\") ||
+            data.user.includes("=") ||
+            data.user.includes("(") ||
+            data.user.includes(")") ||
+            data.user.includes(";") ||
+            data.user.includes(":") ||
+            data.user.includes(",") ||
+            data.user.includes("[") ||
+            data.user.includes("]") ||
+            data.user.includes("{") ||
+            data.user.includes("}") ||
+            data.user.includes("!") ||
+            data.user.includes("?") ||
+            data.user.includes("*") ||
+            data.user.includes("#") ||
+            data.user.includes("$") ||
+            data.user.includes("%") ||
+            data.user.includes("^") ||
+            data.user.includes("@") ||
+            data.user.includes("~") ||
+            data.user.includes("`") ||
+            data.user.includes("|") ||
+            data.user.includes("+") ||
+            data.user.includes("-")
         ) {
-            io.emit("script manipulated", data.nick);
+            io.emit("script manipulated", {
+                user: data.user,
+                id: data.id,
+            });
             return;
         }
+        if (activeUsers.has(data.user)) {
+            io.emit("user validated", {
+                user: data.user,
+                id: data.id,
+                validated: false,
+            });
+        } else {
+            io.emit("user validated", {
+                user: data.user,
+                id: data.id,
+                validated: true,
+            });
+        }
+    });
+    socket.on("new user", function (data) {
         socket.userId = data;
         activeUsers.add(data);
         //... is the the spread operator, adds to the set while retaining what was in there already

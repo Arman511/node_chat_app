@@ -11,10 +11,8 @@ var typing = false;
 var firstTime = true;
 var notifications = false;
 
-const newUserConnected = function (data) {
-    //give the user a random unique id
+const promptUserName = function () {
     id = Math.floor(Math.random() * 1000000);
-    //prompt the user for their username
     userName = prompt("Enter your username: ");
     while (true) {
         if (
@@ -61,6 +59,28 @@ const newUserConnected = function (data) {
             break;
         }
     }
+    socket.emit("validate user", { user: userName, id: id });
+};
+
+socket.on("user validated", function (data) {
+    console.log(data);
+    console.log({ id, userName });
+    if (data.id === id && data.validated === true && userName === data.user) {
+        newUserConnected();
+    } else if (
+        data.id === id &&
+        data.validated === false &&
+        userName === data.user
+    ) {
+        alert("Username already taken. Please enter another username.");
+        promptUserName();
+    }
+});
+
+const newUserConnected = function (data) {
+    //give the user a random unique id
+    //prompt the user for their username
+
     //console.log(typeof(userName));
 
     //emit an event with the user id
@@ -91,7 +111,7 @@ const addToUsersBox = function (userName) {
 };
 
 //call
-newUserConnected();
+promptUserName();
 
 const inputField = document.querySelector(".message_form__input");
 const messageForm = document.querySelector(".message_form");
@@ -226,7 +246,7 @@ socket.on("typingStatus", function (data) {
     }
 });
 socket.on("script manipulated", function (data) {
-    if (data === userName) {
+    if (data.user === userName && data.id === id) {
         alert("Invalid input. HTML code is not allowed.");
         location.reload();
     }
