@@ -41,6 +41,12 @@ io.on("connection", function (socket) {
         // Check if the message contains a <script> tag
         if (data.message.includes("<script>")) {
             console.log("Message contains JavaScript code.");
+            io.emit("script manipulated", data.nick);
+            return;
+        }
+        if (data.message.length > 300) {
+            console.log("Message too long");
+            io.emit("script manipulated", data.nick);
             return;
         }
 

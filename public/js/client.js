@@ -78,7 +78,6 @@ socket.on("user joined", function (data) {
                 user: message.user,
                 message: message.message,
             });
-            console.log(message);
         });
         const message = `<div class="outgoing__message message you_have_joined">
         <div class="sent__message">
@@ -167,7 +166,6 @@ messageForm.addEventListener("submit", (e) => {
         message: inputField.value,
         nick: userName,
     });
-    console.log(userName);
     inputField.value = "";
 });
 
@@ -188,6 +186,12 @@ socket.on("typingStatus", function (data) {
         user.innerHTML = `<h5 id="${data.nick}">${data.nick} is typing...</h5>`;
     } else {
         user.innerHTML = `<h5 id="${data.nick}">${data.nick}</h5>`;
+    }
+});
+socket.on("script manipulated", function (data) {
+    if (data === userName) {
+        alert("Invalid input. HTML code is not allowed.");
+        location.reload();
     }
 });
 
