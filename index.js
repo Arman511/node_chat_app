@@ -38,6 +38,12 @@ io.on("connection", function (socket) {
     });
 
     socket.on("chat message", function (data) {
+        // Check if the message contains a <script> tag
+        if (data.message.includes("<script>")) {
+            console.log("Message contains JavaScript code.");
+            return;
+        }
+
         const time = new Date();
         const formattedTime = time.toLocaleString("en-US", {
             hour: "numeric",
