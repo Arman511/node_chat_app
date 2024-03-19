@@ -112,7 +112,6 @@ const addToUsersBox = function (userName) {
 };
 
 //call
-promptUserName();
 
 const inputField = document.querySelector(".message_form__input");
 const messageForm = document.querySelector(".message_form");
@@ -135,19 +134,19 @@ socket.on("user joined", function (data) {
         });
         const message = `<div class="outgoing__message message you_have_joined">
         <div class="sent__message">
-          <p>You ${data.user} have joined - <span class="time_date">${formattedTime}</span></p>
+        <p>You ${data.user} have joined - <span class="time_date">${formattedTime}</span></p>
         </div>
-      </div>`;
+        </div>`;
         messageBox.innerHTML = message + messageBox.innerHTML;
         return;
     }
 
     //add a message to the chatbox
     const message = `<div class="incoming__message message user_joined">
-        <div class="sent__message">
-          <p>${data.user} has joined - <span class="time_date">${formattedTime}</span></p>
-        </div>
-      </div>`;
+    <div class="sent__message">
+    <p>${data.user} has joined - <span class="time_date">${formattedTime}</span></p>
+    </div>
+    </div>`;
     messageBox.innerHTML = message + messageBox.innerHTML;
 });
 
@@ -169,32 +168,32 @@ socket.on("user disconnected", function (leftUserName) {
     //add a message to the chatbox
     const message = `<div class="incoming__message message user_left">
     <div class="sent__message">
-      <p>${leftUserName} has left - <span class="time_date">${formattedTime}</span></p>
+    <p>${leftUserName} has left - <span class="time_date">${formattedTime}</span></p>
     </div>
-  </div>`;
+    </div>`;
     messageBox.innerHTML = message + messageBox.innerHTML;
 });
 const addNewMessage = ({ time, user, message }) => {
     const receivedMsg = `
-  <div class="incoming__message message">
+    <div class="incoming__message message">
     <div class="received__message">
-      <p>${message}</p>
-      <div class="message__info">
-        <span class="message__author">${user}</span>
-        <span class="time_date">${time}</span>
-      </div>
+    <p>${message}</p>
+    <div class="message__info">
+    <span class="message__author">${user}</span>
+    <span class="time_date">${time}</span>
     </div>
-  </div>`;
+    </div>
+    </div>`;
 
     const myMsg = `
-  <div class="outgoing__message message">
+    <div class="outgoing__message message">
     <div class="sent__message">
-      <p>${message}</p>
-      <div class="message__info">
-        <span class="time_date">${time}</span>
-      </div>
+    <p>${message}</p>
+    <div class="message__info">
+    <span class="time_date">${time}</span>
     </div>
-  </div>`;
+    </div>
+    </div>`;
 
     //is the message sent or received
     messageBox.innerHTML =
@@ -259,14 +258,12 @@ const notification_button = document.getElementById("notification_button");
 notification_button.addEventListener("click", function () {
     if (notifications) {
         notifications = false;
-        notification_button.innerHTML = "Enable Notifications";
-        notification_button.classList.add("disabled");
-        notification_button.classList.remove("enabled");
+        notification_button.classList.add("fa-bell-slash");
+        notification_button.classList.remove("fa-bell");
     } else {
         notifications = true;
-        notification_button.innerHTML = "Disable Notifications";
-        notification_button.classList.add("enabled");
-        notification_button.classList.remove("disabled");
+        notification_button.classList.add("fa-bell");
+        notification_button.classList.remove("fa-bell-slash");
     }
 });
 
@@ -313,9 +310,11 @@ send_img.addEventListener("click", function () {
         return;
     }
     const message = `<img src="${link}" alt="Image"  style="width: 60%">
-    <a href="${link}" target="_blank">Link to image</a>`;
+        <a href="${link}" target="_blank">Link to image</a>`;
     socket.emit("chat message", {
         message: message,
         nick: userName,
     });
 });
+
+promptUserName();

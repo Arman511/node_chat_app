@@ -31,7 +31,7 @@
     <div class="container">
       <h1>Arman's Chat</h1>
       <h4 style="text-align: center;" id="nametag">You are </h4>
-      <button id="clear_chat">Clear chat</button>
+      <button id="clear_chat">Clear chat <i class="fa-regular fa-circle-xmark"></i></button>
 
     </div>
     <div class="container">
@@ -49,7 +49,8 @@
     <div class="container">
       <div class="buttons">
         <button id="send_link">Send link</button>
-        <button id="notification_button" class="disabled">Enable notification</button>
+        <i id="notification_button" class="fa-solid fa-bell-slash"></i>
+
         <button id="send_img">Send image</button>
       </div>
     </div>
@@ -71,6 +72,7 @@
         document.querySelector('.messages__history').innerHTML = '';
       });
     </script>
+    <script src="https://kit.fontawesome.com/936bacb652.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
