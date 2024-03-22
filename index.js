@@ -19,6 +19,7 @@ const activeUsers = new Set();
 
 io.on("connection", function (socket) {
     console.log("Made socket connection");
+    //Validate username
     socket.on("validate user", function (data) {
         if (
             data.user === null ||
@@ -79,6 +80,7 @@ io.on("connection", function (socket) {
             });
         }
     });
+    //New user joins
     socket.on("new user", function (data) {
         socket.userId = data;
         activeUsers.add(data);
@@ -90,12 +92,12 @@ io.on("connection", function (socket) {
         };
         io.emit("user joined", data);
     });
-
+    //User disconnects
     socket.on("disconnect", function () {
         activeUsers.delete(socket.userId);
         io.emit("user disconnected", socket.userId);
     });
-
+    //Chat message
     socket.on("chat message", function (data) {
         // Check if the message contains a <script> tag
         if (data.message.includes("<script>")) {
@@ -125,7 +127,7 @@ io.on("connection", function (socket) {
             chat_history.shift();
         }
     });
-
+    //Typing status
     socket.on("typing", (data) => {
         if (data.typing == true) {
             io.emit("typingStatus", data);

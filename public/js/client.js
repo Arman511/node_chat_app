@@ -117,6 +117,7 @@ const inputField = document.querySelector(".message_form__input");
 const messageForm = document.querySelector(".message_form");
 const messageBox = document.querySelector(".messages__history");
 
+//when a user joins
 socket.on("user joined", function (data) {
     const time = new Date();
     const formattedTime = time.toLocaleString("en-US", {
@@ -173,6 +174,7 @@ socket.on("user disconnected", function (leftUserName) {
     </div>`;
     messageBox.innerHTML = message + messageBox.innerHTML;
 });
+//add a new message to the chatbox
 const addNewMessage = ({ time, user, message }) => {
     const receivedMsg = `
     <div class="incoming__message message">
@@ -199,17 +201,18 @@ const addNewMessage = ({ time, user, message }) => {
     messageBox.innerHTML =
         (user === userName ? myMsg : receivedMsg) + messageBox.innerHTML;
 };
-
+//when a user sends a message
 messageForm.addEventListener("submit", (e) => {
     e.preventDefault();
     if (!inputField.value) {
         return;
     }
+    // Check if the message is too long
     if (inputField.value.length > 300) {
         alert("Message too long");
         return;
     }
-
+    // Check if the message contains a html tags
     if (/<\/?[a-z][\s\S]*>/i.test(inputField.value)) {
         alert("Invalid input. HTML code is not allowed.");
         return;
@@ -221,21 +224,21 @@ messageForm.addEventListener("submit", (e) => {
     });
     inputField.value = "";
 });
-
+//when a message is received
 socket.on("chat message", function (data) {
     addNewMessage({ time: data.time, user: data.user, message: data.message });
     if (notifications && data.user !== userName) {
         audio.play();
     }
 });
-
+//when a user is typing
 inputField.addEventListener("keypress", () => {
     socket.emit("typing", { typing: true, nick: userName });
 });
 inputField.addEventListener("blur", () => {
     socket.emit("typing", { typing: false, nick: userName });
 });
-
+//when a user is typing
 socket.on("typingStatus", function (data) {
     var user = document.getElementById(data.nick);
     if (data.typing == true) {
@@ -244,6 +247,7 @@ socket.on("typingStatus", function (data) {
         user.innerHTML = `<h5 id="${data.nick}">${data.nick}</h5>`;
     }
 });
+//if the server detects user has changed the javascript of the page, force reloads their page
 socket.on("script manipulated", function (data) {
     if (data.user === userName && data.id === id) {
         alert("Invalid input. HTML code is not allowed.");
@@ -254,7 +258,7 @@ socket.on("script manipulated", function (data) {
 const send_link = document.getElementById("send_link");
 const send_img = document.getElementById("send_img");
 const notification_button = document.getElementById("notification_button");
-
+//when the notification button is clicked
 notification_button.addEventListener("click", function () {
     if (notifications) {
         notifications = false;
@@ -266,7 +270,7 @@ notification_button.addEventListener("click", function () {
         notification_button.classList.remove("fa-bell-slash");
     }
 });
-
+//when the send link button is clicked
 send_link.addEventListener("click", function () {
     var link = prompt("Enter the link: ");
     if (link === null || link === "") {
@@ -289,7 +293,7 @@ send_link.addEventListener("click", function () {
         nick: userName,
     });
 });
-
+//when the send image button is clicked
 send_img.addEventListener("click", function () {
     var link = prompt("Enter the image link: ");
     if (link === null || link === "") {
@@ -316,5 +320,5 @@ send_img.addEventListener("click", function () {
         nick: userName,
     });
 });
-
+//call
 promptUserName();
