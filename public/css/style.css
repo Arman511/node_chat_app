@@ -5,11 +5,11 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: darkslategrey !important;
+    background-attachment: fixed;
 }
 
 .banner {
-    background-color: #f2f2f2;
+    background-color: #f2f2f24b;
     padding: 20px;
     text-align: center;
     margin-bottom: 20px;
@@ -82,6 +82,13 @@ nav.navbar {
 @media only screen and (min-width: 600px) {
     body {
         font-size: 2em !important;
+        background-image: url(../assets/background.jpg) !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-image: url(../assets/phone_background.jpg) !important;
     }
 }
 
