@@ -1,5 +1,6 @@
 const express = require("express");
 const socket = require("socket.io");
+const axios = require("axios");
 
 // App setup
 const PORT = process.env.PORT || 5000;
@@ -135,4 +136,25 @@ io.on("connection", function (socket) {
             io.emit("typingStatus", data);
         }
     });
+});
+// Define API endpoint
+app.get("/api/news", async (req, res) => {
+    try {
+        const response = await axios.post(
+            "https://ok.surf/api/v1/news-section",
+            {
+                sections: ["Technology"],
+            }
+        );
+
+        if (!response.data) {
+            throw new Error("Empty response received");
+        }
+
+        let news_data = response.data.Technology.slice(0, 10);
+        return res.json(news_data);
+    } catch (error) {
+        console.error("There was a problem with the fetch operation:", error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
 });
