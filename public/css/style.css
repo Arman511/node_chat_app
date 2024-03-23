@@ -19,7 +19,7 @@ header {
     width: 100% !important;
 }
 
-.container {
+.my_container {
     padding: 16px;
     background-color: #f2f2f2;
     margin-top: 20px;
@@ -27,12 +27,10 @@ header {
     border-radius: 10px;
 }
 
-.container h1 {
+.my_container h1 {
     text-align: center;
     color: #fd7013;
 }
-
-/*make the active user text inherit style from container*/
 
 .inbox__people {
     color: black;
