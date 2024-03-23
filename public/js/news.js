@@ -11,7 +11,7 @@ const get_news = async () => {
         news_div.innerHTML = `
             <h2><a href="${news.link}" target="_blank">${news.title}</a></h2>
             <h3>By: ${news.source}</h3>
-            <a href="${news.link}" target="_blank"><img src="${news.og}" style="max-width: 100%;"></img></a>
+            <a href="${news.link}" target="_blank"><img src="${news.og}" alt="Article image" style="max-width: 100%;"></img></a>
             <br>
             <a href="${news.link}" target="_blank">Read more</a>
         `;
