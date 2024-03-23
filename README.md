@@ -5,8 +5,10 @@
 -   [Introduction](#introduction)
 -   [Running](#running)
 -   [Heroku](#heroku)
+-   [Development approach](#development-approach)
 -   [Challenges](#challenges)
 -   [Details](#details)
+    -   [Emits](#emits)
 
 ## Introduction
 
@@ -20,9 +22,23 @@ To run type into the terminal either `npm run start` or `node index.js`, then op
 
 [Here](https://arman-chat-app-ec32a39cf8d5.herokuapp.com/) is the link to the Heroku of this site
 
+## Development approach
+
+My approach on making the website was to focus on the base aesthetics, then work on polishing off the chat application, add then adding the content for my portfolio then refocussing on the css to fit my theme.
+
+For extras, I have used the fontawesome's library of icons for my notification and clear chat button. The attempt was fairly successful, as the icons can change colour allowing me to make the notification icon to switch between red and green as needed. The integrate them I just had to call their library in the script tag at the bottom of the html. The rationale was that the icons would be quicker convey their message than the text, using colour as the identifier.
+
+The other extra I am using is bootstrap, mostly for their css features for the `container` class. TO add them I just added them to the `head` tag in the html. The rationale was that they looked nice in my CA3, so I added them to my CA4.
+
+I also added a notification noise if the user activates their notifications.
+
+I am using axios and a REST API to link my news page and my news getter in hte server. When the user opens the `news.html` it calls the rest api of the server, which uses axios to fetch the top 50 news articles on google news using the `ok.surf` api. The server then trims the json for the top 10, then sends it back to the client which parses it for the source, link, article image and title of the article. It then displays this to the user. The attempt was not hard, but could be more fully fleshed out with the description of the article if i used a more advanced API, however `ok.surf` was the only news api that did not need an API key or account to work. The integration was simple, as it just required I make an api in my server for that listened to `/api/news`.
+
+I followed the design philosophy of my CA3, by have a nice static background image that switches between a landscape or portrait version for phone and desktop screens, and `div`s to hold and separate my content, via the `container` class in bootstrap, overriding on its colour, margins and padding. The `container` class creates a clear separator for my content.
+
 ## Challenges
 
-The main problem I had was to do with the navbar, I originally wanted a collapsible burger navbar then made itself smaller in mobile mode, then bigger in desktop mode, however I could not get it to work so I compromised and went with a basic navbar.
+The main problem I had was to do with the navbar, I originally wanted a collapsible burger navbar then made itself smaller in mobile mode, then bigger in desktop mode, however I could not get it to work so I compromised and went with a basic navbar. I then dedicated a an hour to do an got it working.
 Another problem I had was learning how sockets work, but after some trial and error I found that it works by sending a message to the server from the client, and from the server to the client, never from client to client.
 
 ## Details
