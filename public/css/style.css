@@ -77,6 +77,12 @@ nav.navbar {
     transition-duration: 0.5s;
 }
 
+.navbar-brand {
+    font-size: 30px !important;
+    color: #372dff;
+    transition-duration: 0.5s;
+}
+
 @media only screen and (min-width: 600px) {
     body {
         font-size: 2em !important;
