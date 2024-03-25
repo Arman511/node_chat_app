@@ -1,7 +1,7 @@
 var news_data = "";
 const news_container = document.getElementById("news_box");
 const get_news = async () => {
-    const response = await fetch("/api/news");
+    const response = await fetch("/api/space_news");
     const data = await response.json();
     news_data = data;
     var content = [];
@@ -9,11 +9,12 @@ const get_news = async () => {
         const news_div = document.createElement("div");
         news_div.className = "news";
         news_div.innerHTML = `
-            <h2><a href="${news.link}" target="_blank">${news.title}</a></h2>
-            <h3>By: ${news.source}</h3>
-            <a href="${news.link}" target="_blank"><img src="${news.og}" alt="Article image" style="max-width: 100%;"></img></a>
+            <h2><a href="${news.url}" target="_blank">${news.title}</a></h2>
+            <h3>By: ${news.news_site}</h3>
+            <p>${news.summary}</p>
+            <a href="${news.url}" target="_blank"><img src="${news.image_url}" class="news_image" alt="Article image" style="min-width:50%;max-width: 100%;"></img></a>
             <br>
-            <a href="${news.link}" target="_blank">Read more</a>
+            <a href="${news.url}" target="_blank">Read more</a>
         `;
         content.push(news_div.outerHTML);
     });

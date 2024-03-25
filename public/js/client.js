@@ -314,6 +314,7 @@ send_img.addEventListener("click", function () {
         return;
     }
     const message = `<img src="${link}" alt="Image"  style="width: 60%">
+        <br/>
         <a href="${link}" target="_blank">Link to image</a>`;
     socket.emit("chat message", {
         message: message,
