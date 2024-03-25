@@ -138,7 +138,7 @@ io.on("connection", function (socket) {
     });
 });
 // Define API endpoint
-app.get("/api/news", async (req, res) => {
+app.get("/api/tech_news", async (req, res) => {
     try {
         const response = await axios.post(
             "https://ok.surf/api/v1/news-section",
@@ -150,8 +150,24 @@ app.get("/api/news", async (req, res) => {
         if (!response.data) {
             throw new Error("Empty response received");
         }
+        let news_data = response.data.Technology.slice(0, 30);
+        return res.json(news_data);
+    } catch (error) {
+        console.error("There was a problem with the fetch operation:", error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+});
 
-        let news_data = response.data.Technology.slice(0, 10);
+app.get("/api/space_news", async (req, res) => {
+    try {
+        const response = await axios.get(
+            "https://api.spaceflightnewsapi.net/v4/articles/"
+        );
+
+        if (!response.data) {
+            throw new Error("Empty response received");
+        }
+        let news_data = response.data.results;
         return res.json(news_data);
     } catch (error) {
         console.error("There was a problem with the fetch operation:", error);

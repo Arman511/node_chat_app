@@ -16,7 +16,7 @@ This is a portfolio and chat application using a node server, that can be run us
 
 ## Running
 
-To run type into the terminal either `npm run start` or `node index.js`, then open the box url at port 5000.
+To run type into the terminal either `npm run start` or `node index.js`, then open the box url at port 5000. Make sure you run `npm install` before running to make sure all modules are installed.
 
 ## Heroku
 
@@ -32,7 +32,7 @@ The other extra I am using is bootstrap, mostly for their css features for the `
 
 I also added a notification noise if the user activates their notifications.
 
-I am using axios and a REST API to link my news page and my news getter in hte server. When the user opens the `news.html` it calls the rest api of the server, which uses axios to fetch the top 50 news articles on google news using the `ok.surf` api. The server then trims the json for the top 10, then sends it back to the client which parses it for the source, link, article image and title of the article. It then displays this to the user. The attempt was not hard, but could be more fully fleshed out with the description of the article if i used a more advanced API, however `ok.surf` was the only news api that did not need an API key or account to work. The integration was simple, as it just required I make an api in my server for that listened to `/api/news`.
+For another extra I using the npm package `axios` and a REST API to link my news pages and my news getters in the server. When the user opens the `news.html` it calls the rest api of the server, which uses axios to fetch the top 50 news articles on google news using the `ok.surf` api or the current space articles on the `spaceflightnewsapi`. The server then trims the json for the top 30 for tech news, then sends it back to the client which parses it for the source, link, article image and title of the article, if its space news it also parses fro the summary. It then displays this to the user. The attempt was not hard, but could be more fully fleshed out with the summary of the article for the tech news if I used a more advanced API, however `ok.surf` was the only news api that did not need an API key or account to work. The integration was simple, as it just required I make an api in my server for that listened to `/api/tech_news` and another at `/api/space_news` for space news.
 
 I followed the design philosophy of my CA3, by have a nice static background image that switches between a landscape or portrait version for phone and desktop screens, and `div`s to hold and separate my content, via the `container` class in bootstrap, overriding on its colour, margins and padding. The `container` class creates a clear separator for my content.
 

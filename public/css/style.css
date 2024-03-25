@@ -94,6 +94,9 @@ nav.navbar {
     body {
         background-image: url(../assets/phone_background.jpg) !important;
     }
+    .news_image {
+        width: 100%;
+    }
 }
 
 .outgoing__message,
