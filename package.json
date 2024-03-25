@@ -1,14 +1,14 @@
 {
     "name": "ca4",
     "version": "1.0.0",
-    "description": "The repository contains some example code to get you started.",
+    "description": "A chat app, with portfolio and page for tech and space news",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "npm install && node index.js"
     },
-    "keywords": [],
-    "author": "",
+    "keywords": ["Chat", "Space News", "Tech News", "News", "Portfolio"],
+    "author": "Arman Shaikh",
     "license": "ISC",
     "dependencies": {
         "axios": "^1.6.8",
