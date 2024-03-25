@@ -130,11 +130,7 @@ io.on("connection", function (socket) {
     });
     //Typing status
     socket.on("typing", (data) => {
-        if (data.typing == true) {
-            io.emit("typingStatus", data);
-        } else {
-            io.emit("typingStatus", data);
-        }
+        io.emit("typingStatus", data);
     });
 });
 // Define API endpoint
