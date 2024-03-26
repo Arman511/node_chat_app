@@ -163,7 +163,9 @@ app.get("/api/tech_news", async (req, res) => {
         return res.json(news_data);
     } catch (error) {
         console.error("There was a problem with the fetch operation:", error);
-        return res.status(500).json({ error: "Internal Server Error" });
+        return res
+            .status(500)
+            .json({ error: "Internal Server Error, Try again later" });
     }
 });
 
@@ -191,7 +193,9 @@ app.get("/api/space_news", async (req, res) => {
         return res.json(news_data);
     } catch (error) {
         console.error("There was a problem with the fetch operation:", error);
-        return res.status(500).json({ error: "Internal Server Error" });
+        return res
+            .status(500)
+            .json({ error: "Internal Server Error, Try again later" });
     }
 });
 const pwd = process.cwd();
