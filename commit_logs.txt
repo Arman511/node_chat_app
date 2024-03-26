@@ -1,0 +1,498 @@
+commit 51be82ca4c1b0e81c2721b81c9d0b993113cd8f6
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Tue Mar 26 12:54:02 2024 +0000
+
+    Shortend linking between pages
+
+commit e42350720e1e6c6f7a747eee633963719f7b5fa7
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Tue Mar 26 12:45:51 2024 +0000
+
+    Added an error page
+
+commit 1098d21567bb170d1d4903b1a9966271d2ecc7ac
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 25 19:11:37 2024 +0000
+
+    azure things
+
+commit 5ac59dc1bfd12e7ffaaec904a81b1043e44126c9
+Author: ARMAN SHAIKH <a.shaikh.23@abdn.ac.uk>
+Date:   Mon Mar 25 18:28:05 2024 +0000
+
+    Removed unnessary line of code
+
+commit d31d7d4d8eea2520b28d2f2bd89aca89a13e9ac9
+Author: ARMAN SHAIKH <a.shaikh.23@abdn.ac.uk>
+Date:   Mon Mar 25 13:55:36 2024 +0000
+
+    Added keywords to package.json
+
+commit 910025e0ec89b09cac6dd108c9066d8b84998a80
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 25 13:52:01 2024 +0000
+
+    Added link  button to portfolio in index
+
+commit 7d99ab1ac26cead9133c99dc110ce505b6713180
+Merge: 00a6b1a b7fef2c
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 25 13:21:27 2024 +0000
+
+    Merge branch 'main' of https://github.com/Arman511/CS1534-CA4
+
+commit 00a6b1aae6a8ac513e0adc8c8c9de60a62f274f4
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 25 12:51:25 2024 +0000
+
+    Added space news
+
+commit b7fef2c8fb37bda1c0e906e5c056f24d63a13603
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 25 12:51:25 2024 +0000
+
+    Added space news
+
+commit 6e6ccc40bf8067c4e511d119cd6cbb15782a9d12
+Merge: e3b50d3 c1f8198
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 20:18:32 2024 +0000
+
+    Merge branch 'main' of https://github.com/Arman511/CS1534-CA4
+
+commit e3b50d35aba600c9ef04e288c6c1b7ce8731cb0f
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 19:55:25 2024 +0000
+
+    Changes to remove issues from html validator
+
+commit c1f819831fdac69f1a40c6f50ddf60685bf7e0ae
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 19:55:25 2024 +0000
+
+    Changes to remove issues from html validator
+
+commit 8609a0b5e23d05e87582d55b9167bc872d9db7ae
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 19:40:56 2024 +0000
+
+    Fixed the collapsible navbar
+
+commit f0ade0118467af4c8efe0aa6ca5f89aa33f63de7
+Merge: 8e4b6a2 9b11d91
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 19:19:11 2024 +0000
+
+    Merge branch 'main' of https://github.com/Arman511/CS1534-CA4
+
+commit 8e4b6a289379ae1bbff1e8bca057bc732dfdb59d
+Merge: 2d4415e 8fe80b6
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 19:14:51 2024 +0000
+
+    Merge branch 'main' of https://github.com/Arman511/CS1534-CA4
+
+commit 9b11d910737e9920e2498adea8fe851e64f82d21
+Merge: 2d4415e 8fe80b6
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 19:14:51 2024 +0000
+
+    Merge branch 'main' of https://github.com/Arman511/CS1534-CA4
+
+commit 2d4415e936fcc20176e1c4d032d40d82e00c165e
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 19:10:43 2024 +0000
+
+    Finished of readme
+
+commit 8fe80b6667d8a624aeb8b852f71af6f9a9a69d77
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 19:10:43 2024 +0000
+
+    Finished of readme
+
+commit 6df03a3bb18806e134a3be431a9451048fccb0cb
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 19:10:30 2024 +0000
+
+    Made a news tab
+
+commit b55bc5341a1cf09841d5ada03e27b444d5831a23
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 17:54:36 2024 +0000
+
+    Solved issue of weird navbar size
+
+commit 4b9007a0064340e3c95f0ce672172e607f3bb115
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 17:50:27 2024 +0000
+
+    Better navbar
+
+commit 9b1f68bea71f599475ed8f3d850a421ae7dd3ec0
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 17:40:36 2024 +0000
+
+    Added description to the html
+
+commit 242089c8877fed6c857c6d63fb01247e9608858d
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 23 17:36:47 2024 +0000
+
+    Added more thing for gitignore
+
+commit 34199e447e7c1a98ce8a11102e8ecee71fd3f87b
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 22 14:31:03 2024 +0000
+
+    Added the challenges and techincal details
+
+commit 7d7a622200b67e5b09f822f6b16caf08b3e54b40
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 22 13:39:37 2024 +0000
+
+    Made background better
+
+commit e4465b39705bcb53bb0f8c29d7ee31c43c961fa4
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 22 13:24:24 2024 +0000
+
+    Code comments
+
+commit 0cfa72ba55eb7d9ece5b080232a8c0754dda8af6
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Wed Mar 20 16:39:27 2024 +0000
+
+    Added my portfolio
+
+commit fb7c088ef7d896c9e94bf93bd52721ad5be61b40
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Tue Mar 19 09:18:06 2024 +0000
+
+    Used an external icon pack
+
+commit 1713588132c8199736a3cdbe898589379e2c2785
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 18 23:52:17 2024 +0000
+
+    Added guest accounts
+
+commit a66d17532b4280ae03259089381ed65e6bd75115
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 18 23:43:01 2024 +0000
+
+    Preload the ping noise
+
+commit 54c414e4dec65378a256b6a00a6378f4777fb598
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 18 23:42:51 2024 +0000
+
+    Better formatting
+
+commit 45b27c794fc63f08f99b028c9e4c8fe1f18470d9
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 18 15:21:25 2024 +0000
+
+    Added validation so only one person can have a username at a time
+
+commit 2f3c359592b57bb0766c2107732dfcb108fe27ca
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 18 14:53:55 2024 +0000
+
+    redone prompt
+
+commit 2c7df2a50f443c03fd59227eacbeeceb153169e6
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 18 14:51:41 2024 +0000
+
+    Added validation to make sure username doesnt break the website
+
+commit 9eee796d905242c40786ddd77ca9fa166e20fe57
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 18 14:35:19 2024 +0000
+
+    Removed self closing tags, formated field to be aligned to page
+
+commit 3a4a52a1ad093d90d70df12097c07e41ee45e01f
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 18 14:21:02 2024 +0000
+
+    Made message boxes wrap text
+
+commit 439bb0e62bbf0ea4f4a0022269bcfc0eb161e82d
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 18 12:49:37 2024 +0000
+
+    Made it ping if notifactions are enabled
+
+commit e1a09bf1aedc64deded17add5f7599daf6172061
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 18 12:17:17 2024 +0000
+
+    added server side validation of message size and made it so if anyone changes the script then it will alert them then fore reload their page
+
+commit 9fe55dcc4465735058b729a68164f6e392cc7657
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 18 12:15:49 2024 +0000
+
+    Added validation so that messages are not javascript
+
+commit ed2307f1cb654aff0717f8142135b74d33553344
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Mon Mar 18 12:08:30 2024 +0000
+
+    Fixed an error on typing status
+
+commit 33034bcec1620c70d67c7c569c6ec3bb10ba6670
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 21:43:25 2024 +0000
+
+    small chaneg of colors of links in chat to be more visiable
+
+commit 564a8659b2067fabe1ad0327aaaf3e6336ffb58f
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 21:40:09 2024 +0000
+
+    Added a to send links and images, and made it so html code cannot be transmitted
+
+commit 0893a1ce6f2bfae0f56aa7430d1cf6adc1111c8c
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 21:33:14 2024 +0000
+
+    Fixed issue with time on messages from histrory when new user joins with time being set to the now not to the past
+
+commit 9d73052966e5ee4f101e6acd594195ecef3bc184
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 21:13:48 2024 +0000
+
+    Disallow html code to be sent, potentially allowing some to run javascript code maliciously.
+
+commit 09115745b398faf9315f3cef87f1eb3d3d391cc9
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 21:11:22 2024 +0000
+
+    Make it not allow message greater than 300 char
+
+commit 1d8fe1c3ae2eab34497a91d2ac9be752bfd7a021
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 21:07:06 2024 +0000
+
+    Made clear chat button functional
+
+commit a3945f785c88be89aee70f13ea6d914200fe7cc5
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 21:05:11 2024 +0000
+
+    Added a scroll box that will scroll. Make server save the last 100 messages so when new user joins they can see them and added functional button to clear chat. The scroll box will also stay near bottom unless you scroll up
+
+commit f99d19bb7a377a13c14eb42555aa042d58a6f1b0
+Merge: 079f962 a0a2d65
+Author: ARMAN SHAIKH <a.shaikh.23@abdn.ac.uk>
+Date:   Sun Mar 17 20:25:16 2024 +0000
+
+    Merge branch 'main' of github.com:Arman511/CS1534-CA4 into main
+
+commit 079f9624b25db517e30018cff71da8dc8df5b487
+Author: ARMAN SHAIKH <a.shaikh.23@abdn.ac.uk>
+Date:   Sun Mar 17 20:25:07 2024 +0000
+
+    Made npm run start also do npm install when running node index.js
+
+commit a0a2d653625da73a9426df1d31daea2b2b93235b
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 14:55:27 2024 +0000
+
+    removed unnesary code in css
+
+commit 7f0b615a2f955bcd427e345bb0bd52bfef0ee193
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 14:55:18 2024 +0000
+
+    added a link to the image oin index
+
+commit 2454eb0e3da4c943e7f282ebdfe57f71368d6ea7
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 14:54:49 2024 +0000
+
+    fixed nav in chat
+
+commit a95b04c138f20832a4739e21c12e67dfa819f99f
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 14:54:30 2024 +0000
+
+    Fixed about page
+
+commit 6c93c5473e0bbe88afc043612527c7d5660a6152
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 13:01:32 2024 +0000
+
+    Header to show who you are
+
+commit e5d1eeb5844e701cc1cd832426797581837c50c3
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 13:01:18 2024 +0000
+
+    Can now see typing status
+
+commit 8512ab2e8f902a9cee7ea60070a8b8843de67ad7
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sun Mar 17 12:56:55 2024 +0000
+
+    Made the buttons and input field better
+
+commit c837de44d32f2a5c37f0527c8413b4ce67610630
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Sat Mar 16 10:22:59 2024 +0000
+
+    moved logo to assets folder
+
+commit 5228877f181082f63db49a022fcd3e775ab5c8cf
+Author: ARMAN SHAIKH <a.shaikh.23@abdn.ac.uk>
+Date:   Sat Mar 16 10:19:24 2024 +0000
+
+    Added more start ways with npm and declared it in readme
+
+commit 7f386b3cc0aca6824b02d31aa8aa491d56d3a252
+Merge: ccfe181 fb137be
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 23:11:23 2024 +0000
+
+    Merge branch 'main' of https://github.com/Arman511/CS1534-CA4
+
+commit ccfe1814a6383e7bb9542f31db8d44c7f389ffde
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 23:06:43 2024 +0000
+
+    Formatted the chat html to look nices and made the new user message appear on correct side of screen
+
+commit fb137be6bc845253139a4e9e3d40968a1a275122
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 23:06:43 2024 +0000
+
+    Formatted the chat html to look nices and made the new user message appear on correct side of screen
+
+commit e333ab41532082ef47eb321b5b1dba4b6b89a7e5
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 22:58:24 2024 +0000
+
+    Changed readme slighty
+
+commit b50445a5208dcd4300a1869cf9cd6991cbb51f9f
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 22:53:31 2024 +0000
+
+    Using the port provided by heroku
+
+commit be95dcb10f13611321398a1b363a44544bae8465
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 22:50:05 2024 +0000
+
+    Changed port number to 8080
+
+commit c912cd1eccf96da1badce99efa69880732acdec0
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 22:46:49 2024 +0000
+
+    .
+
+commit 0c37d9e4698f77933d067f917a1eff3195f8d6d3
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 22:38:10 2024 +0000
+
+    heroku procfile
+
+commit 88649316337350d6438581d198c27a7020faa269
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 22:35:47 2024 +0000
+
+    heroku procfile
+
+commit abe613ad8b277b3138ba2ab0262aef497ba62cf4
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 17:46:44 2024 +0000
+
+    formatting
+
+commit f8c2d11dca84d937c281d9a652ef4e27443f90c0
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 17:37:18 2024 +0000
+
+    Added a logo
+
+commit 19b6b60ee2de6860f70e2d678bdc212f97f915e4
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 17:37:09 2024 +0000
+
+    added a border around messages
+
+commit 9fd6f9e681bf21e12c0ced6c5449002b8256a3b4
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 15:51:28 2024 +0000
+
+    Fixed some formatting
+
+commit b3cd2c962957294ef4df7849c5b6ea79edef57c9
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 15:24:34 2024 +0000
+
+    Added a message when a  user joins
+
+commit 3ab821b087663aaceedd912fe870cd50a1fc84f9
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 15:17:00 2024 +0000
+
+    Check if the first letter of user name is not a  number as that will break the program
+
+commit cd3cd2a895b870169418256dd29aa7d1456a1711
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 14:46:31 2024 +0000
+
+    Added a message if user left
+
+commit 1aa396c92922acee93361e0a7963edc4e27fe30c
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 14:30:22 2024 +0000
+
+    Ask for username
+
+commit 580176b3a69f6158341dbc021a3dd78041e4b0cd
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 14:23:34 2024 +0000
+
+    renamed demo.css to style.css
+
+commit f942e24ebc6ef96159c90a087491bed585eb496a
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 14:23:19 2024 +0000
+
+    Added banner and bootstrap
+
+commit ea7d10f0a85992337ac86b99aa294a4b57997bd2
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 14:21:51 2024 +0000
+
+    Added about
+
+commit 62cb24cf1888d27ba94031b3cd68639cd7d4b8bd
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 14:21:09 2024 +0000
+
+    added instructions
+
+commit 383a420c136cbb615cfa2947eaf945801b245d3f
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Fri Mar 15 14:09:24 2024 +0000
+
+    format all files
+
+commit 63d49a2dd1ae7b2ab58562e232b128dd4c31c216
+Author: Arman <arman.shaikh.work@gmail.com>
+Date:   Thu Mar 14 17:44:23 2024 +0000
+
+    Initialised npm and added .gitignore
+
+commit 1d90efb951ee2bf390b3cf2f121a38e476474afb
+Author: ARMAN SHAIKH <a.shaikh.23@abdn.ac.uk>
+Date:   Thu Mar 14 17:37:03 2024 +0000
+
+    Start
