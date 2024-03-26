@@ -2,6 +2,15 @@ var news_data = "";
 const news_container = document.getElementById("news_box");
 const get_news = async () => {
     const response = await fetch("/api/tech_news");
+    if (!response.ok) {
+        const message = document.createElement("div");
+        message.className = "error";
+        message.innerHTML = `<h2>An error has occurred: ${response.statusText}</h2>`;
+        news_container.appendChild(message);
+        console.error("There was a problem with the fetch operation");
+        return;
+    }
+
     const data = await response.json();
     news_data = data;
     var content = [];

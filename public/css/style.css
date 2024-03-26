@@ -152,3 +152,9 @@ nav.navbar {
 .message_form__button {
     width: min-content;
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}

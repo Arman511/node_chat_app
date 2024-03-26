@@ -133,9 +133,18 @@ io.on("connection", function (socket) {
         io.emit("typingStatus", data);
     });
 });
+
+const last_news_check = { date: new Date(), response: null };
 // Define API endpoint
 app.get("/api/tech_news", async (req, res) => {
     try {
+        if (
+            last_news_check.response !== null &&
+            last_news_check.date > new Date(Date.now() - 1000 * 60 * 60)
+        ) {
+            return res.json(last_news_check.response);
+        }
+
         const response = await axios.post(
             "https://ok.surf/api/v1/news-section",
             {
@@ -147,15 +156,28 @@ app.get("/api/tech_news", async (req, res) => {
             throw new Error("Empty response received");
         }
         let news_data = response.data.Technology.slice(0, 30);
+
+        last_news_check.date = new Date();
+        last_news_check.response = news_data;
+
         return res.json(news_data);
     } catch (error) {
         console.error("There was a problem with the fetch operation:", error);
-        return res.status(500).json({ error: "Internal Server Error" });
+        return res
+            .status(500)
+            .json({ error: "Internal Server Error, Try again later" });
     }
 });
 
+const last_space_news_check = { date: new Date(), response: null };
 app.get("/api/space_news", async (req, res) => {
     try {
+        if (
+            last_space_news_check.response !== null &&
+            last_space_news_check.date > new Date(Date.now() - 1000 * 60 * 60)
+        ) {
+            return res.json(last_space_news_check.response);
+        }
         const response = await axios.get(
             "https://api.spaceflightnewsapi.net/v4/articles/"
         );
@@ -164,10 +186,16 @@ app.get("/api/space_news", async (req, res) => {
             throw new Error("Empty response received");
         }
         let news_data = response.data.results;
+
+        last_space_news_check.date = new Date();
+        last_space_news_check.response = news_data;
+
         return res.json(news_data);
     } catch (error) {
         console.error("There was a problem with the fetch operation:", error);
-        return res.status(500).json({ error: "Internal Server Error" });
+        return res
+            .status(500)
+            .json({ error: "Internal Server Error, Try again later" });
     }
 });
 const pwd = process.cwd();
