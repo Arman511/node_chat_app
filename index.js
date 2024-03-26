@@ -170,3 +170,8 @@ app.get("/api/space_news", async (req, res) => {
         return res.status(500).json({ error: "Internal Server Error" });
     }
 });
+const pwd = process.cwd();
+// Catch all get errors
+app.use(function (req, res, next) {
+    res.status(404).sendFile(`/${pwd}/public/error.html`);
+});
