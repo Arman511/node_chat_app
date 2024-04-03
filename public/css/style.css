@@ -85,7 +85,7 @@ nav.navbar {
 
 @media only screen and (min-width: 600px) {
     body {
-        font-size: 2em !important;
+        font-size: 1.75em !important;
         background-image: url(../assets/background.jpg) !important;
     }
 }
