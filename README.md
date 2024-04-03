@@ -9,6 +9,7 @@
 -   [Challenges](#challenges)
 -   [Details](#details)
     -   [Emits](#emits)
+-   [Sources](#sources)
 
 ## Introduction
 
@@ -54,4 +55,13 @@ The `script manipulated` is emitted by the server if it detects if the client si
 The `new user` emit is sent by the client to tell the server a new user is connected, os it tell the other clint's to add then to the active user box, it is also sent by client to tell other users a new user has joined.
 The `user joined` emit is only listed to once by a client, it basically used to end the chat history to new users.
 The `chat message` command is called by both the server and client side, the client does this when a person send s message, this message then validated by the server, then is send to the other clients using this, the clients listen to this and check if it was sent by themselves, if it it is then it displays on the right side of the message box, if it isn't, then it goes on the left side.
-`typing` is sent to the server when the client detects a keypress in the input box or when the user loses focus on it, this is then sent to the other users to show typing status, sent on the key of `typingStatus`
+`typing` is sent to the server when the client detects a key-press in the input box or when the user loses focus on it, this is then sent to the other users to show typing status, sent on the key of `typingStatus`
+
+## Sources
+
+-   https://socket.io/docs/v4 - For how to use socket.
+-   https://getbootstrap.com/docs/4.0/components/navbar - On making my navbar.
+-   https://getbootstrap.com/docs/5.0/utilities/overflow/ - How I made my chat history box.
+-   https://ok.surf/ - Where I get my news data from, their free news API.
+-   https://api.spaceflightnewsapi.net/v4/articles/ - Where I get my space news from, using their free API.
+-   https://arman511.github.io/ - I used my already prebuilt portfolio website to make my portfolio.
