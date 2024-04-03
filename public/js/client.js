@@ -12,6 +12,7 @@ var typing = false;
 var firstTime = true;
 var notifications = false;
 
+// Prompt the user for their username, and then validates it
 const promptUserName = function () {
     id = Math.floor(Math.random() * 1000000);
     userName = prompt("Enter your username, or enter nothing to be a guest: ");
@@ -67,6 +68,9 @@ const promptUserName = function () {
     socket.emit("validate user", { user: userName, id: id });
 };
 
+/* When the server validates the user, it will either prompt the user for another username 
+or call newUserConnected to add the user to the chat depending of it was a valid username
+ */
 socket.on("user validated", function (data) {
     if (data.id === id && data.validated === true && userName === data.user) {
         newUserConnected();

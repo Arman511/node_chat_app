@@ -1,5 +1,6 @@
 var news_data = "";
 const news_container = document.getElementById("news_box");
+// Fetches the latest space news using the API
 const get_news = async () => {
     const response = await fetch("/api/space_news");
     if (!response.ok) {
@@ -29,4 +30,5 @@ const get_news = async () => {
     news_container.innerHTML = content.join("<hr>");
 };
 
+// Call the function to fetch the news
 get_news();
