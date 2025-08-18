@@ -58,6 +58,58 @@ The `chat message` command is called by both the server and client side, the cli
 
 ## Sources
         return input.replaceAll("(\\s)\"(\\d+)\"", "$1\\\\\"$2\\\\\"");
+
+        import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class AdvancedJsonFix {
+    public static void main(String[] args) {
+        try {
+            // Broken input
+            String brokenJson = "{\"elements\": \"item number \"1\"\", \"id\": \"56\"}";
+
+            // Fix JSON
+            String fixedJson = fixJson(brokenJson);
+            System.out.println("Fixed JSON: " + fixedJson);
+
+            // Parse into JsonNode
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode root = mapper.readTree(fixedJson);
+
+            System.out.println("Elements: " + root.get("elements").asText());
+            System.out.println("Id: " + root.get("id").asText());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String fixJson(String input) {
+        StringBuilder sb = new StringBuilder();
+        boolean insideString = false;
+        boolean escaped = false;
+
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+
+            if (c == '"' && !escaped) {
+                insideString = !insideString; // toggle entering/exiting a string
+                sb.append(c);
+            } else if (c == '"' && insideString) {
+                // we are inside a string → escape it
+                sb.append("\\\"");
+            } else {
+                sb.append(c);
+            }
+
+            // check escape sequence
+            escaped = (c == '\\' && !escaped);
+        }
+
+        return sb.toString();
+    }
+}
+
 -   https://socket.io/docs/v4 - For how to use socket.
 -   https://getbootstrap.com/docs/4.0/components/navbar - On making my navbar.
 -   https://getbootstrap.com/docs/5.0/utilities/overflow/ - How I made my chat history box.
