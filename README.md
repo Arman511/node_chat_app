@@ -1,4 +1,3 @@
-# CS1534-CA4
 
 ## Contents
 
@@ -44,7 +43,7 @@ Another problem I had was learning how sockets work, but after some trial and er
 
 ## Details
 
-The server uses node.js as a base and uses the npm packages socket.io and express to host a server using the `index.js` file as the server. The server hosts the directory `public` as the content, so the `index.html` in public is the home, this then links the `chat.html` and `about.html` in the navbar. The server is hosted on the port 5000, unless the environmental variable PORT is declared then it uses that, this was done to allow this application to be hosted on Heroku [here](https://arman-chat-app-ec32a39cf8d5.herokuapp.com/). The server works with the clients by using socket.io, the server and client emit and receive messages from each other by using the package. The server is listening on the clients' emits of `validate user`, `new user`, `disconnect`, `chat message`and `typing`. The client is listening to the server's of `script manipulated`, `user validated`, `new user`, `user joined`, `user disconnected`, `chat message` and `typingStatus`. The server listens on the clients' emits and the client listens on the server's emits. This allows them to communicate, validate messages and send messages.
+The server uses node.js as a base and uses the npm packages socket.io and express to host a server using the `index.js` file as the server. The server hosts the directory `public` as the content, so the `index.html` in public is the home, this then links the `chat.html` and `about.html` in the navbar. The server works with the clients by using socket.io, the server and client emit and receive messages from each other by using the package. The server is listening on the clients' emits of `validate user`, `new user`, `disconnect`, `chat message`and `typing`. The client is listening to the server's of `script manipulated`, `user validated`, `new user`, `user joined`, `user disconnected`, `chat message` and `typingStatus`. The server listens on the clients' emits and the client listens on the server's emits. This allows them to communicate, validate messages and send messages.
 
 ### Emits
 
@@ -58,7 +57,7 @@ The `chat message` command is called by both the server and client side, the cli
 `typing` is sent to the server when the client detects a key-press in the input box or when the user loses focus on it, this is then sent to the other users to show typing status, sent on the key of `typingStatus`
 
 ## Sources
-
+        return input.replaceAll("(\\s)\"(\\d+)\"", "$1\\\\\"$2\\\\\"");
 -   https://socket.io/docs/v4 - For how to use socket.
 -   https://getbootstrap.com/docs/4.0/components/navbar - On making my navbar.
 -   https://getbootstrap.com/docs/5.0/utilities/overflow/ - How I made my chat history box.
